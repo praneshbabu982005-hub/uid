@@ -2,11 +2,13 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useCart } from '../contexts/CartContext';
-import { FaShoppingCart, FaUser, FaSignOutAlt, FaCog } from 'react-icons/fa';
+import { useWeather } from '../contexts/WeatherContext';
+import { FaShoppingCart, FaUser, FaSignOutAlt, FaCog, FaCloudSun, FaHandshake, FaCalculator } from 'react-icons/fa';
 
 const Navbar = () => {
   const { currentUser, logout } = useAuth();
   const { getCartCount } = useCart();
+  const { toggleWeather } = useWeather();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -25,6 +27,25 @@ const Navbar = () => {
           <div className="flex items-center space-x-6">
             <Link to="/products" className="text-gray-700 hover:text-blue-600 transition-colors">
               Products
+            </Link>
+            
+            <Link to="/dealer-registration" className="text-gray-700 hover:text-blue-600 transition-colors flex items-center space-x-1">
+              <FaHandshake size={16} />
+              <span className="hidden sm:inline">Become a Dealer</span>
+            </Link>
+            
+            <button
+              onClick={toggleWeather}
+              className="text-gray-700 hover:text-blue-600 transition-colors flex items-center space-x-1"
+              title="Check Weather"
+            >
+              <FaCloudSun size={18} />
+              <span className="hidden sm:inline">Weather</span>
+            </button>
+            
+            <Link to="/calculator" className="text-gray-700 hover:text-blue-600 transition-colors flex items-center space-x-1">
+              <FaCalculator size={18} />
+              <span className="hidden sm:inline">Calculator</span>
             </Link>
             
             <Link to="/cart" className="relative text-gray-700 hover:text-blue-600 transition-colors">
