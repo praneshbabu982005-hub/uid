@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useCart } from '../contexts/CartContext';
 import { useWeather } from '../contexts/WeatherContext';
-import { FaShoppingCart, FaUser, FaSignOutAlt, FaCog, FaCloudSun, FaHandshake, FaCalculator } from 'react-icons/fa';
+import { FaShoppingCart, FaUser, FaSignOutAlt, FaCog, FaCloudSun, FaHandshake, FaCalculator, FaMusic } from 'react-icons/fa';
+import TodoList from './TodoList';
 
 const Navbar = () => {
   const { currentUser, logout } = useAuth();
@@ -47,6 +48,14 @@ const Navbar = () => {
               <FaCalculator size={18} />
               <span className="hidden sm:inline">Calculator</span>
             </Link>
+            
+            <Link to="/equipment" className="text-gray-700 hover:text-blue-600 transition-colors flex items-center space-x-1">
+              <FaMusic size={18} />
+              <span className="hidden sm:inline">Equipment</span>
+            </Link>
+            
+            {/* Todo List Component */}
+            <TodoList />
             
             <Link to="/cart" className="relative text-gray-700 hover:text-blue-600 transition-colors">
               <FaShoppingCart size={20} />

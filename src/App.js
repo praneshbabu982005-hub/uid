@@ -5,6 +5,7 @@ import { CartProvider } from './contexts/CartContext';
 import { ProductProvider } from './contexts/ProductContext';
 import { WeatherProvider } from './contexts/WeatherContext';
 import { DealerProvider } from './contexts/DealerContext';
+import { TodoProvider } from './contexts/TodoContext';
 import Navbar from './components/Navbar';
 import Weather from './components/Weather';
 import Home from './pages/Home';
@@ -19,6 +20,7 @@ import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
 import DealerRegistration from './pages/DealerRegistration';
 import Calculator from './pages/Calculator';
+import EquipmentManagement from './pages/EquipmentManagement';
 import './App.css';
 
 function App() {
@@ -28,6 +30,7 @@ function App() {
         <CartProvider>
           <WeatherProvider>
             <DealerProvider>
+              <TodoProvider>
             <Router>
               <div className="App">
                 <Navbar />
@@ -45,11 +48,13 @@ function App() {
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/dealer-registration" element={<DealerRegistration />} />
                     <Route path="/calculator" element={<Calculator />} />
+                    <Route path="/equipment" element={<EquipmentManagement />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </main>
               </div>
             </Router>
+              </TodoProvider>
             </DealerProvider>
           </WeatherProvider>
         </CartProvider>
